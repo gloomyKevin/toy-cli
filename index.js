@@ -1,13 +1,16 @@
 #!/usr/bin/env node
-console.log('cli test');
 
 const program = require('commander')
-// const helpOptions = require('./lib/core/help')
+const helpOptions = require('./lib/core/help')
+const createCommands = require('./lib/core/create')
 
-program.version('1.0.0')
+program.version(require('./package.json').version)
 
-// help & select info
-// helpOptions()
+// add help & select info
+helpOptions()
+
+// add other create commands
+createCommands()
 
 // usually put the end
 program.parse(process.argv)
